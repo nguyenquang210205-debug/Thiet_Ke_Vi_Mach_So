@@ -1,0 +1,70 @@
+`timescale 1ns/1ps
+
+// Khai báo package n?u c?n thi?t (??m b?o package này ?ã ???c biên d?ch tr??c)
+import holy_core_pkg::*;
+
+module tb_alu;
+
+    // Khai báo tín hi?u cho Testbench (?ã xóa dòng logic [31:5] src1 b? th?a)
+    logic [3:0]  alu_control;
+    logic [31:0] src1; 
+    logic [31:0] src2;
+    logic [31:0] alu_result;
+    logic        zero;
+    logic        last_bit;
+
+    // Instantiate (Kh?i t?o) module ALU c?n test
+    alu u_alu (
+        .alu_control(alu_control),
+        .src1(src1),
+        .src2(src2),
+        .alu_result(alu_result),
+        .zero(zero),
+        .last_bit(last_bit)
+    );
+
+    // Kh?i t?o stimulus (k?ch b?n ki?m tra)
+    initial begin
+        // Hi?n th? tiêu ?? trên console
+        $display("Starting ALU Testbench...");
+
+        // Test 1: ADD (30 + 12 = 42)
+        alu_control = ALU_ADD;
+        src1 = 32'd30;
+        src2 = 32'd12;
+        #10;
+        $display("ADD: %0d + %0d = %0d (Expected: 42)", src1, src2, alu_result);
+
+        // Test 2: SUB (50 - 20 = 30)
+        alu_control = ALU_SUB;
+        src1 = 32'd50;
+        src2 = 32'd20;
+        #10;
+        $display("SUB: %0d - %0d = %0d (Expected: 30)", src1, src2, alu_result);
+
+        // Test 3: AND (0xFF00 & 0x0FF0)
+        alu_control = ALU_AND;
+        src1 = 32'h0000FF00;
+        src2 = 32'h00000FF0;
+        #10;
+        $display("AND: %h & %h = %h", src1, src2, alu_result);
+
+        // Test 4: SLT (10 < 20 -> true -> 1)
+        alu_control = ALU_SLT;
+        src1 = 32'd10;
+        src2 = 32'd20;
+        #10;
+        $display("SLT: %0d < %0d = %0d (Expected: 1)", src1, src2, alu_result);
+
+        // Test 5: SLL (1 << 3 = 8)
+        alu_control = ALU_SLL;
+        src1 = 32'd1;
+        src2 = 32'd3;
+        #10;
+        $display("SLL: %0d << %0d = %0d (Expected: 8)", src1, src2, alu_result);
+
+        // K?t thúc mô ph?ng
+        $stop;
+    end
+
+endmodule

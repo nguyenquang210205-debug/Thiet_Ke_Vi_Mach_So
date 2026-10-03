@@ -1,0 +1,98 @@
+memory.sv {1 {vlog -work work -sv -stats=none D:/riscv_single_cycle/memory.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module memory
+
+Top level modules:
+	memory
+
+} {} {}} D:/riscv_single_cycle/tb_alu_sv.sv {1 {vlog -work work -sv -stats=none D:/riscv_single_cycle/tb_alu_sv.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling package tb_alu_sv_sv_unit
+-- Importing package holy_core_pkg
+-- Compiling module tb_alu
+
+Top level modules:
+	tb_alu
+
+} {} {}} alu.sv {1 {vlog -work work -sv -stats=none D:/riscv_single_cycle/alu.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module alu
+-- Importing package holy_core_pkg
+
+Top level modules:
+	alu
+
+} {} {}} D:/riscv_single_cycle/load_store_decoder.sv {1 {vlog -work work -sv -stats=none D:/riscv_single_cycle/load_store_decoder.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module load_store_decoder
+-- Importing package holy_core_pkg
+
+Top level modules:
+	load_store_decoder
+
+} {} {}} D:/riscv_single_cycle/reader.sv {1 {vlog -work work -sv -stats=none D:/riscv_single_cycle/reader.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module reader
+-- Importing package holy_core_pkg
+
+Top level modules:
+	reader
+
+} {} {}} D:/riscv_single_cycle/holy_core_pkg.sv {1 {vlog -work work -stats=none D:/riscv_single_cycle/holy_core_pkg.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling package holy_core_pkg
+
+Top level modules:
+	--none--
+
+} {} {}} D:/riscv_single_cycle/tb_cpu.sv {1 {vlog -work work -sv -stats=none D:/riscv_single_cycle/tb_cpu.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module cpu_tb
+
+Top level modules:
+	cpu_tb
+
+} {} {}} D:/riscv_single_cycle/tb_control.sv {1 {vlog -work work -sv -stats=none D:/riscv_single_cycle/tb_control.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module tb_control
+
+Top level modules:
+	tb_control
+
+} {} {}} D:/riscv_single_cycle/tb_load_store_decoder.sv {1 {vlog -work work -sv -stats=none D:/riscv_single_cycle/tb_load_store_decoder.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module load_store_decoder_tb
+
+Top level modules:
+	load_store_decoder_tb
+
+} {} {}} D:/riscv_single_cycle/tb_reader.sv {1 {vlog -work work -sv -stats=none D:/riscv_single_cycle/tb_reader.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module reader_tb
+
+Top level modules:
+	reader_tb
+
+} {} {}} D:/riscv_single_cycle/cpu.sv {1 {vlog -work work -sv -stats=none D:/riscv_single_cycle/cpu.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module cpu
+
+Top level modules:
+	cpu
+
+} {} {}} D:/riscv_single_cycle/control.sv {1 {vlog -work work -sv -stats=none D:/riscv_single_cycle/control.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module control
+-- Importing package holy_core_pkg
+
+Top level modules:
+	control
+
+} {} {}} tb_memory.sv {1 {vlog -work work -sv -stats=none D:/riscv_single_cycle/tb_memory.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module memory_tb
+
+Top level modules:
+	memory_tb
+
+} {} {}}

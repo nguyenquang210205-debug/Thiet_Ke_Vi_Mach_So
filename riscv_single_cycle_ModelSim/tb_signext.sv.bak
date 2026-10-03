@@ -1,0 +1,63 @@
+`timescale 1ns/1ps
+
+module tb_signext;
+
+    // Khai bao cac tin hieu
+    logic [24:0] raw_src;
+    logic [2:0]  imm_source;
+    logic [31:0] immediate;
+
+    // Khoi tao module can kiem tra (DUT - Device Under Test)
+    signext uut (
+        .raw_src(raw_src),
+        .imm_source(imm_source),
+        .immediate(immediate)
+    );
+
+    initial begin
+        $display("=== Bat dau kiem tra Sign Extender ===");
+
+        // 1. Kiem tra I-Type (imm_source = 3'b000)
+        // Gia su raw_src chua bit dau tai vi tri cao nhat (bit 24), vi du: 1 cho so am, 0 cho so duong
+        imm_source = 3'b000;
+        raw_src    = 25'b1_0000_0000_1111_2222_3333; // Dung gia tri mau de kiem tra cat lat
+        // Trong I-Type: immediate = {{20{raw_src[24]}}, raw_src[24:13]}
+        #10;
+        $display("I-Type Test -> raw_src[24:13]=0x%03h, sign=%b | immediate = 0x%08h", 
+                 raw_src[24:13], raw_src[24], immediate);
+
+        // 2. Kiem tra S-Type (imm_source = 3'b001)
+        imm_source = 3'b001;
+        raw_src    = 25'b0_1111_2222_3333_4444_5555;
+        #10;
+        $display("S-Type Test -> immediate = 0x%08h", immediate);
+
+        // 3. Kiem tra B-Type (imm_source = 3'b010)
+        imm_source = 3'b010;
+        raw_src    = 25'b1_1010_1010_1010_1010_1010;
+        #10;
+        $display("B-Type Test -> immediate = 0x%08h", immediate);
+
+        // 4. Kiem tra J-Type (imm_source = 3'b011)
+        imm_source = 3'b011;
+        raw_src    = 25'b0_0101_0101_0101_0101_0101;
+        #10;
+        $display("J-Type Test -> immediate = 0x%08h", immediate);
+
+        // 5. Kiem tra U-Type (imm_source = 3'b100)
+        imm_source = 3'b100;
+        raw_src    = 25'b1_1234_5678_9abc_def0; // Chu y raw_src[24:5]
+        #10;
+        $display("U-Type Test -> immediate = 0x%08h", immediate);
+
+        // 6. Kiem tra truong hop default (imm_source khong hop le)
+        imm_source = 3'b111;
+        raw_src    = 25'h1FFFFFF;
+        #10;
+        $display("Default Test (Mong doi: 0) -> immediate = 0x%08h", immediate);
+
+        $display("=== Hoan thanh kiem tra Sign Extender ===");
+        $finish;
+    end
+
+endmodule
